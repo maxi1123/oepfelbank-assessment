@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -12,9 +13,12 @@ export default class HomePageComponent implements OnInit {
 
   public navItemLabels: string[] = ['Login'];
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     setTimeout(() => {
       this.loading = false;
-    }, 3000);
+      this.router.navigate(['home/login']);
+    }, 2000);
   }
 }
