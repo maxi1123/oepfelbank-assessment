@@ -1,0 +1,15 @@
+@import '../../../styles/utils';
+
+.logo-wrapper {
+    @include flex-center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.splash-logo-display {
+    width: 180px;
+}
+
+.margin-top {
+    padding-top: 2 * $ob-spacing; 
+}

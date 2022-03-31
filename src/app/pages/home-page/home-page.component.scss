@@ -1,0 +1,37 @@
+@import '../../../styles/utils';
+
+.body, .container, .content-wrapper {
+    height: 100%;
+}
+
+.sidenav {
+    width: 11rem;
+    padding: 2*$ob-spacing 0;
+    border-right: 0;
+}
+
+.container {
+    background-color: var(--ob-background);
+}
+
+.content-wrapper {
+    padding: 10*$ob-spacing;
+}
+
+.header-logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2*$ob-spacing;
+}
+
+.logo-display {
+    width: 50px;
+}
+
+.icon-display {
+    font-size: 30px;
+    height: 30px ;
+    width: 30px;
+}
