@@ -1,0 +1,19 @@
+<app-splash-overlay *ngIf="loading"></app-splash-overlay>
+<mat-sidenav-container *ngIf="!loading" class="container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="sidenavOpen" class="sidenav">
+    <div class="header-logo">
+      <div class="logo-display">
+        <app-splash-logo></app-splash-logo>
+      </div>
+      <h1>Oepfelbank</h1>
+    </div>
+    <div class="sidenav-list" *ngFor="let itemLabel of navItemLabels">
+      <app-sidenav-item [label]="itemLabel"></app-sidenav-item>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

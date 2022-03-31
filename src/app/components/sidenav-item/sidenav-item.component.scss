@@ -1,0 +1,16 @@
+@import '../../../styles/utils';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: $ob-spacing 0 $ob-spacing $ob-spacing;
+}
+
+.wrapper:hover {
+  background-color: rgb(255, 202, 202);
+  cursor: pointer;
+}
+
+.label {
+  padding-left: $ob-spacing;
+}
