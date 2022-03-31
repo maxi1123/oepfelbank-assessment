@@ -1,0 +1,58 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $font-family: '"Nunito Sans", sans-serif;',
+);
+
+@include mat.core($custom-typography);
+
+$md-oepfelbankred: (
+    50 : #f8e3e5,
+    100 : #edbabd,
+    200 : #e18c91,
+    300 : #d45e65,
+    400 : #cb3c44,
+    500 : #c21923,
+    600 : #bc161f,
+    700 : #b4121a,
+    800 : #ac0e15,
+    900 : #9f080c,
+    A100 : #ffcbcc,
+    A200 : #ff989a,
+    A400 : #ff6567,
+    A700 : #ff4c4e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$oepfelbank-primary: mat.define-palette($md-oepfelbankred);
+$oepfelbank-accent: mat.define-palette(mat.$gray-palette, 300);
+$oepfelbank-warn: mat.define-palette(mat.$light-blue-palette, 500);
+
+$oepfelbank-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $oepfelbank-primary,
+      accent: $oepfelbank-accent,
+      warn: $oepfelbank-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($oepfelbank-theme);
