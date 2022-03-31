@@ -8,9 +8,8 @@ describe('SplashLogoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SplashLogoComponent ]
-    })
-    .compileComponents();
+      declarations: [SplashLogoComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'ob-sidenav-item',
+  selector: 'app-sidenav-item',
   template: `
     <div class="wrapper">
       <mat-icon>login</mat-icon>
@@ -10,10 +10,6 @@ import { Component, Input, OnInit } from '@angular/core';
   `,
   styleUrls: ['./sidenav-item.component.scss'],
 })
-export default class SidenavItemComponent implements OnInit {
-  @Input('label') label: string = '';
-
-  constructor() {}
-
-  ngOnInit(): void {}
+export default class SidenavItemComponent {
+  @Input() label: string = '';
 }

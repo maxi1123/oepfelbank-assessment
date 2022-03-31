@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ob-splash-logo',
+  selector: 'app-splash-logo',
   template: `
     <svg width="100%" viewBox="0 0 222 222" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -19,8 +19,4 @@ import { Component, OnInit } from '@angular/core';
     </svg>
   `,
 })
-export default class SplashLogoComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export default class SplashLogoComponent {}

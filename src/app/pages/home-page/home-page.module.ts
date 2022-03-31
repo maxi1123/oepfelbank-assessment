@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import HomePageComponent from './home-page.component';
-
-import HomePageRoutingModule from './home-page-routing.module';
 import MaterialModule from '@modules/material.module';
 
 import SplashLogoModule from '@components/splash-logo/splash-logo.module';
 import SidenavItemModule from '@components/sidenav-item/sidenav-item.module';
-import { SplashOverlayModule } from '@components/splash-overlay/splash-overlay.module';
+import SplashOverlayModule from '@components/splash-overlay/splash-overlay.module';
+import HomePageRoutingModule from './home-page-routing.module';
+import HomePageComponent from './home-page.component';
 
 @NgModule({
   declarations: [HomePageComponent],
@@ -21,4 +20,6 @@ import { SplashOverlayModule } from '@components/splash-overlay/splash-overlay.m
     SplashOverlayModule,
   ],
 })
+
+/* eslint-disable */
 export class HomePageModule {}

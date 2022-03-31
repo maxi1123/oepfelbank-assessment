@@ -1,19 +1,19 @@
 @import '../../../styles/utils';
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .text-wrapper {
-    margin-bottom: 5*$ob-spacing;
+  margin-bottom: 5 * $ob-spacing;
 }
 
 .title {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .subtitle {
-    color: var(--ob-font-secondary)
+  color: var(--ob-font-secondary);
 }

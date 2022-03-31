@@ -1,17 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ob-splash-overlay',
+  selector: 'app-splash-overlay',
   template: ` <div class="logo-wrapper">
     <div class="splash-logo-display">
-      <ob-splash-logo></ob-splash-logo>
+      <app-splash-logo></app-splash-logo>
     </div>
     <p class="mat-display-1 margin-top">Oepfelbank</p>
   </div>`,
   styleUrls: ['./splash-overlay.component.scss'],
 })
-export default class SplashOverlayComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export default class SplashOverlayComponent {}

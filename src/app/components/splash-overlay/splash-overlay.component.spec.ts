@@ -8,9 +8,8 @@ describe('SplashOverlayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SplashOverlayComponent ]
-    })
-    .compileComponents();
+      declarations: [SplashOverlayComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

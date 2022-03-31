@@ -12,7 +12,7 @@
       "@utils/*": ["src/app/utils/*"],
       "@assets/*": ["src/assets/*"],
       "@environment/*": ["src/environments/*"],
-      "@styles/*": ["src/styles/*"],
+      "@styles/*": ["src/styles/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

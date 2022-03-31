@@ -1,14 +1,14 @@
-<ob-splash-overlay *ngIf="loading"></ob-splash-overlay>
+<app-splash-overlay *ngIf="loading"></app-splash-overlay>
 <mat-sidenav-container *ngIf="!loading" class="container">
   <mat-sidenav #sidenav mode="side" [(opened)]="sidenavOpen" class="sidenav">
     <div class="header-logo">
       <div class="logo-display">
-        <ob-splash-logo></ob-splash-logo>
+        <app-splash-logo></app-splash-logo>
       </div>
       <h1>Oepfelbank</h1>
     </div>
     <div class="sidenav-list" *ngFor="let itemLabel of navItemLabels">
-      <ob-sidenav-item [label]="itemLabel"></ob-sidenav-item>
+      <app-sidenav-item [label]="itemLabel"></app-sidenav-item>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>

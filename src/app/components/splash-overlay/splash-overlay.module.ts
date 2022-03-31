@@ -9,4 +9,4 @@ import SplashOverlayComponent from './splash-overlay.component';
   imports: [CommonModule, SplashLogoModule],
   exports: [SplashOverlayComponent],
 })
-export class SplashOverlayModule {}
+export default class SplashOverlayModule {}

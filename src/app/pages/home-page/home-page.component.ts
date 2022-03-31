@@ -7,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export default class HomePageComponent implements OnInit {
   public loading: boolean = true;
+
   public sidenavOpen: boolean = true;
 
   public navItemLabels: string[] = ['Login'];
 
-  constructor() {}
-
   ngOnInit(): void {
-    setTimeout(() => (this.loading = false), 3000);
+    setTimeout(() => {
+      this.loading = false;
+    }, 3000);
   }
 }
