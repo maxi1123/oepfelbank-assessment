@@ -14,6 +14,8 @@ export default class LocalStorageService {
     this.localStorage = localStorageRefService.localStorage;
   }
 
+  /* eslint-disable */
+
   setInfo(data: LocalUserI) {
     const jsonData = JSON.stringify(data);
     sessionStorage.setItem('user', jsonData);
@@ -23,6 +25,8 @@ export default class LocalStorageService {
     const data = JSON.parse(sessionStorage.getItem('user') as string);
     return data;
   }
+
+  /* eslint-disable */
 
   setRefreshToken(token: string): void {
     this.localStorage.setItem('refresh _token', token);

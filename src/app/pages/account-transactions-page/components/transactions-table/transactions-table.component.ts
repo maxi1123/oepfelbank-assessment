@@ -23,12 +23,17 @@ export default class TransactionsTableComponent implements OnInit, OnDestroy {
   /* eslint-disable */
   @Input('transactionsResponse') transactionsResponse$: Observable<TransactionsResponseI>;
   /* eslint-enable */
+
   @ViewChild(MatSort) sort: MatSort;
+
   @Output() navEvent = new EventEmitter();
 
   public dataSource: MatTableDataSource<TransactionI>;
+
   public displayedColumns: string[] = ['bookingDate', 'status', 'transactionInfo', 'amount', 'currency'];
+
   private d$ = new Subject();
+
   public errorMessage: string;
 
   ngOnInit(): void {
