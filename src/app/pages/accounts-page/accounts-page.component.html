@@ -35,6 +35,7 @@
       <app-account-card
         *ngFor="let account of accountsResponse.accounts"
         [accountData]="account"
+        (click)="navigate(account.accountId)"
       ></app-account-card>
     </div>
   </div>
