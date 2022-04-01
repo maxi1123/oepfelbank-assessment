@@ -1,0 +1,10 @@
+@import '../../../styles/utils';
+
+.title {
+  font-weight: 600;
+}
+
+.subtitle {
+  color: var(--ob-font-secondary);
+  padding-bottom: 5 * $ob-spacing;
+}

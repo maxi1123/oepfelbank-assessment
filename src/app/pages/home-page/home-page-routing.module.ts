@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import HomePageComponent from '@pages/home-page/home-page.component';
 
+/* eslint-disable */
+
 const routes: Routes = [
   {
     path: '',

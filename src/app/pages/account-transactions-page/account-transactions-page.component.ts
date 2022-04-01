@@ -14,7 +14,8 @@ import { TransactionsResponseI } from '@core/services/api/interfaces';
   styleUrls: ['./account-transactions-page.component.scss'],
 })
 export default class AccountTransactionsPageComponent implements OnInit {
-  public transactionsResponse$: Observable<TransactionsResponseI> | undefined;
+  public transactionsResponse$: Observable<TransactionsResponseI>;
+
   constructor(
     private sharedRenderService: SharedRenderService,
     private transactionsService: AccountTransactionsService,

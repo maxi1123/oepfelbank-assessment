@@ -8,5 +8,5 @@ import { AccountI } from '@core/services/api/interfaces';
   styleUrls: ['./account-card.component.scss'],
 })
 export default class AccountCardComponent {
-  @Input() accountData: AccountI | undefined;
+  @Input() accountData: AccountI;
 }

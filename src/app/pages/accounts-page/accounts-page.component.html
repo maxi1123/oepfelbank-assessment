@@ -8,6 +8,7 @@
 <div *ngIf="hasAccessToken">
   <h1 class="title">Account Overview</h1>
   <h4 class="subtitle">This overview shows all accounts you gave access to.</h4>
+  <mat-spinner *ngIf="(accountsResponse$ | async) === null" color="primary" class="spinner"></mat-spinner>
   <div *ngIf="accountsResponse$ | async as accountsResponse">
     <div class="overview-wrapper">
       <div class="svg-wrapper">

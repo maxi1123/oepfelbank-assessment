@@ -30,7 +30,7 @@
 }
 
 .total {
-  padding-left: 3 * $ob-spacing;
+  padding-left: 2 * $ob-spacing;
 }
 
 .currency {
@@ -48,4 +48,8 @@
 
 .alert-negative {
   color: var(--ob-alert-down);
+}
+
+.spinner {
+  margin-top: 5 * $ob-spacing;
 }
