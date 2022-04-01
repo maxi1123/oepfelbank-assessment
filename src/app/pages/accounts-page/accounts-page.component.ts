@@ -7,8 +7,8 @@ import LocalStorageService from '@core/services/local-storage.service';
 import SharedRenderService from '@core/services/shared-render.service';
 import AuthService from '@core/auth/auth.service';
 import AccountsService from '@core/services/api/accounts.service';
-
 import { AccountsResponseI } from '@core/services/api/interfaces';
+import LocalUserI from '@core/services/interfaces';
 
 import getCurrentDate from '@utils/date';
 
@@ -23,6 +23,8 @@ export default class AccountsPageComponent implements OnInit {
   public accountsResponse$: Observable<AccountsResponseI> | undefined;
 
   public dateToday: string = getCurrentDate();
+
+  public user: LocalUserI = this.getName();
 
   constructor(
     private localStorageService: LocalStorageService,
@@ -51,5 +53,9 @@ export default class AccountsPageComponent implements OnInit {
 
   public navigate(id: string): void {
     this.router.navigate([`home/transactions/${id}`]);
+  }
+
+  public getName(): LocalUserI {
+    return this.localStorageService.loadInfo();
   }
 }

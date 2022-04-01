@@ -1,3 +1,6 @@
-<h1 class="title">Transactions Overview</h1>
+<h1 class="title" #title>Transactions Overview</h1>
 <h4 class="subtitle">This overview shows all transactions for the selected account.</h4>
-<app-transactions-table [transactionsResponse]="transactionsResponse$"></app-transactions-table>
+<app-transactions-table
+  [transactionsResponse]="transactionsResponse$"
+  (navEvent)="navigateHome()"
+></app-transactions-table>

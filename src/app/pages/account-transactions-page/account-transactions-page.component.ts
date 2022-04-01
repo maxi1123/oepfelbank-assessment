@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
@@ -20,6 +20,7 @@ export default class AccountTransactionsPageComponent implements OnInit {
     private sharedRenderService: SharedRenderService,
     private transactionsService: AccountTransactionsService,
     private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -30,5 +31,9 @@ export default class AccountTransactionsPageComponent implements OnInit {
 
   private initTransactionsView(id: string): void {
     this.transactionsResponse$ = this.transactionsService.getAccountTransactions(id);
+  }
+
+  public navigateHome(): void {
+    this.router.navigate(['home', 'accounts']);
   }
 }

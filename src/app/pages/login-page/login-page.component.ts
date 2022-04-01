@@ -20,7 +20,7 @@ export default class LoginPageComponent {
   constructor(private router: Router, private localStorageService: LocalStorageService) {}
 
   public mockAuth(): void {
-    this.localStorageService.setInfo({ name: 'Paul' });
+    this.localStorageService.setInfo({ name: 'Max' });
     this.router.navigate(['home/accounts']);
   }
 }

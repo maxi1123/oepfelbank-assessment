@@ -1,6 +1,7 @@
 /* eslint-disable */
 
-import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, Subject } from 'rxjs';
 
@@ -25,11 +26,15 @@ export default class TransactionsTableComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatSort) sort: MatSort;
 
+  @Output() navEvent = new EventEmitter();
+
   public dataSource: MatTableDataSource<TransactionI>;
 
   public displayedColumns: string[] = ['bookingDate', 'status', 'transactionInfo', 'amount', 'currency'];
 
   private d$ = new Subject();
+
+  public errorMessage: string;
 
   ngOnInit(): void {
     this.initTable();
@@ -41,9 +46,23 @@ export default class TransactionsTableComponent implements OnInit, OnDestroy {
   }
 
   public initTable(): void {
-    this.transactionsResponse$.pipe(takeUntil(this.d$)).subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res.transactions);
-      this.dataSource.sort = this.sort;
+    this.transactionsResponse$.pipe(takeUntil(this.d$)).subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res.transactions);
+        this.dataSource.sort = this.sort;
+      },
+      error: (e: HttpErrorResponse) => {
+        this.errorMessage = e.error;
+      },
     });
   }
+
+  public triggerNav(): void {
+    this.navEvent.emit();
+  }
 }
+
+// {
+// this.dataSource = new MatTableDataSource((res as TransactionsResponseI).transactions);
+// this.dataSource.sort = this.sort;
+// }
