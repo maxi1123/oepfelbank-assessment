@@ -5,21 +5,13 @@ import MaterialModule from '@modules/material.module';
 
 import SplashLogoModule from '@components/splash-logo/splash-logo.module';
 import SidenavItemModule from '@components/sidenav-item/sidenav-item.module';
-import SplashOverlayModule from '@components/splash-overlay/splash-overlay.module';
 import HomePageRoutingModule from './home-page-routing.module';
 import HomePageComponent from './home-page.component';
 
+/* eslint-disable */
+
 @NgModule({
   declarations: [HomePageComponent],
-  imports: [
-    CommonModule,
-    HomePageRoutingModule,
-    MaterialModule,
-    SplashLogoModule,
-    SidenavItemModule,
-    SplashOverlayModule,
-  ],
+  imports: [CommonModule, HomePageRoutingModule, MaterialModule, SplashLogoModule, SidenavItemModule],
 })
-
-/* eslint-disable */
 export class HomePageModule {}

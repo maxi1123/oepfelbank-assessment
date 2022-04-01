@@ -1,0 +1,51 @@
+@import '../../../styles/utils';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overview-wrapper {
+  @include flex-center;
+  justify-content: flex-start;
+  margin-top: 10 * $ob-spacing;
+}
+
+.text-wrapper {
+  margin-bottom: 5 * $ob-spacing;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.subtitle,
+.currency {
+  color: var(--ob-font-secondary);
+}
+
+.currency {
+  padding-left: 0.5 * $ob-spacing;
+}
+
+.total {
+  padding-left: 3 * $ob-spacing;
+}
+
+.currency {
+  position: relative;
+  top: 4px;
+}
+
+.svg-wrapper {
+  width: 40px;
+}
+
+.card-container {
+  margin-top: 5 * $ob-spacing;
+}
+
+.alert-negative {
+  color: var(--ob-alert-down);
+}

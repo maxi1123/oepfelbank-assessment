@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import LocalStorageService from '@core/services/local-storage.service';
+
 @Component({
   selector: 'app-login-page',
   template: `
@@ -15,9 +17,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss'],
 })
 export default class LoginPageComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private localStorageService: LocalStorageService) {}
 
   public mockAuth(): void {
-    this.router.navigate(['home/dashboard']);
+    this.localStorageService.setInfo({ name: 'Paul' });
+    this.router.navigate(['home/accounts']);
   }
 }
