@@ -16,11 +16,11 @@ export default class LocalStorageService {
 
   setInfo(data: LocalUserI) {
     const jsonData = JSON.stringify(data);
-    this.localStorage.setItem('user', jsonData);
+    sessionStorage.setItem('user', jsonData);
   }
 
   loadInfo(): LocalUserI {
-    const data = JSON.parse(this.localStorage.getItem('user') as string);
+    const data = JSON.parse(sessionStorage.getItem('user') as string);
     return data;
   }
 

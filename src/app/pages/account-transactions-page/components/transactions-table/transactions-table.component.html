@@ -1,4 +1,12 @@
-<div class="wrapper">
+<div *ngIf="errorMessage">
+  <h4 class="error-message">
+    {{ errorMessage }}
+  </h4>
+  <button mat-fab color="primary" class="back" (click)="triggerNav()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>
+<div [hidden]="errorMessage" class="wrapper">
   <table mat-table matSort [dataSource]="dataSource">
     <caption>
       Transactions Overview
