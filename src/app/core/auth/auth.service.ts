@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
-import * as Endpoints from '@core/constants/endpoints';
 import LocalStorageService from '@core/services/local-storage.service';
+
+import * as Endpoints from '@core/constants/endpoints';
 
 import environment from '@environment/environment';
 

@@ -6,7 +6,11 @@
       </div>
     </div>
     <div class="sidenav-list" *ngFor="let itemLabel of navItemLabels">
-      <app-sidenav-item [label]="itemLabel.label" [iconName]="itemLabel.iconName"></app-sidenav-item>
+      <app-sidenav-item
+        [label]="itemLabel.label"
+        [iconName]="itemLabel.iconName"
+        [route]="itemLabel.route"
+      ></app-sidenav-item>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>

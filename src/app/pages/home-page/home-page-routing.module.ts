@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import HomePageComponent from '@pages/home-page/home-page.component';
 
+/* eslint-disable */
+
 const routes: Routes = [
   {
     path: '',
@@ -15,6 +17,13 @@ const routes: Routes = [
       {
         path: 'accounts',
         loadChildren: () => import('../accounts-page/accounts-page.module').then((m) => m.AccountsPageModule),
+      },
+      {
+        path: 'transactions/:id',
+        loadChildren: () =>
+          import('../account-transactions-page/account-transactions-page.module').then(
+            (m) => m.AccountTransactionsPageModule,
+          ),
       },
     ],
   },

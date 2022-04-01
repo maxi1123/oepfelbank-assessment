@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
@@ -28,6 +29,7 @@ export default class AccountsPageComponent implements OnInit {
     private sharedRenderService: SharedRenderService,
     private auth: AuthService,
     private accountsService: AccountsService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +45,11 @@ export default class AccountsPageComponent implements OnInit {
     this.auth.initUIFlow();
   }
 
-  private initAccountView() {
+  private initAccountView(): void {
     this.accountsResponse$ = this.accountsService.getAccounts();
+  }
+
+  public navigate(id: string): void {
+    this.router.navigate([`home/transactions/${id}`]);
   }
 }

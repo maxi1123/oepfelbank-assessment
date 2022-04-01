@@ -15,12 +15,13 @@
       "@styles/*": ["src/styles/*"]
     },
     "outDir": "./dist/out-tsc",
-    "types": [
-      // add node as an option
-      "node"
-    ],
+    // "types": [
+    //   // add node as an option
+    //   "node"
+    // ],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "noImplicitReturns": true,
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
