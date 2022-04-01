@@ -4,11 +4,11 @@
   display: flex;
   align-items: center;
   padding: $ob-spacing 0 $ob-spacing $ob-spacing;
+  margin-bottom: $ob-spacing;
 }
 
 .wrapper:hover {
-  background-color: rgb(255, 202, 202);
-  cursor: pointer;
+  @include hover-trans;
 }
 
 .label {

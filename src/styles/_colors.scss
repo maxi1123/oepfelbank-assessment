@@ -1,6 +1,8 @@
 :root {
   --ob-background: #fff;
   --ob-button: #c21923;
+  --ob-card-border-hover: var(--ob-button);
   --ob-font-primary: #000;
   --ob-font-secondary: rgb(110, 110, 110);
+  --ob-alert-down: var(--ob-button);
 }

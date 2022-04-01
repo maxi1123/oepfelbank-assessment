@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import SharedRenderService from '@core/services/shared-render.service';
+import NavItemI from '@pages/home-page/interfaces';
 
 @Component({
   selector: 'app-login-page',
@@ -11,14 +12,16 @@ export default class HomePageComponent implements OnInit {
 
   public sidenavOpen: boolean = true;
 
-  public navItemLabels: string[] = ['Login'];
+  public navItemLabels: NavItemI[] = [{ label: 'Sign In', iconName: 'login' }];
 
-  constructor(private router: Router) {}
+  constructor(private sharedRenderService: SharedRenderService) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-      this.router.navigate(['home/login']);
-    }, 2000);
+    this.sharedRenderService.changeEmitted$.subscribe(() => {
+      this.navItemLabels = [
+        { label: 'Accounts', iconName: 'credit_card' },
+        { label: 'Transactions', iconName: 'receipt_long' },
+      ];
+    });
   }
 }

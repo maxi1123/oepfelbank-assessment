@@ -1,0 +1,36 @@
+@import '../../../styles/utils';
+
+.logo-wrapper {
+  width: 35px;
+}
+
+.card-container {
+  margin-top: 5 * $ob-spacing;
+}
+
+.card {
+  @include box-shadow;
+  border: 1px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2 * $ob-spacing;
+  max-width: 400px;
+  margin-top: 2 * $ob-spacing;
+}
+
+.card:hover {
+  @include hover-trans;
+}
+
+.currency {
+  color: var(--ob-font-secondary);
+  padding-left: 0.5 * $ob-spacing;
+  position: relative;
+  top: 1px;
+}
+
+.alert-negative {
+  color: var(--ob-alert-down);
+}
