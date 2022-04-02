@@ -1,27 +1,41 @@
-# Oepfelbank Frontend
+# <div style="display: flex; align-items: center"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" alt="drawing" width="50"/>🍎 Oepfelbank - Angular Client 🍎<img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" alt="drawing" width="50"/></div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=maxi1123_oepfelbank-assessment&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=maxi1123_oepfelbank-assessment)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=maxi1123_oepfelbank-assessment&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=maxi1123_oepfelbank-assessment)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=maxi1123_oepfelbank-assessment&metric=bugs)](https://sonarcloud.io/summary/new_code?id=maxi1123_oepfelbank-assessment)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=maxi1123_oepfelbank-assessment&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=maxi1123_oepfelbank-assessment)
 
-## Development server
+Proudly presenting the Client code for the Oepfelbank technical assessment.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Made with ❤️
 
-## Code scaffolding
+## 🛠️ Metadata
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project was generated using:
 
-## Build
+- [Angular CLI](https://angular.io/cli) version 12.1.4.
+- [Node.js](https://nodejs.org/en/) version 14.15.0.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Package Manager:
 
-## Running unit tests
+- [NPM](https://www.npmjs.com/) version 6.14.8.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+I recommend using [nvm](https://github.com/nvm-sh/nvm) for simple Node version management.
 
-## Running end-to-end tests
+## ➡️ Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Clone the repository
+- Grab the node version listed under the Metadata section via [nvm](https://github.com/nvm-sh/nvm)
+- Run `nvm install <node-version>`
+- Use the environment `nvm use <node-version>`
+- In the project root run `npm install`
 
-## Further help
+## ⚙️ Development server
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `ng serve` for a dev server. After you spin it up, navigate to `http://localhost:4200`
+
+## ⚠️ Attention
+
+Be sure to use a Chrome instance with CORS disabled. Follow [this tutorial](https://alfilatov.com/posts/run-chrome-without-cors/) by Aleksandr Filatov to see how to do so.
+
+Due to security reasons, enable CORS again once you're done developing.
