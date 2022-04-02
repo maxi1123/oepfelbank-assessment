@@ -8,6 +8,7 @@
   @include box-shadow;
   border: 1px solid rgb(185, 185, 185);
   border-radius: 10px;
+  background-color: var(--ob-background);
   display: flex;
   align-items: center;
   justify-content: space-between;
