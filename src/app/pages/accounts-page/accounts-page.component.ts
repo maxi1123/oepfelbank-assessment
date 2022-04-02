@@ -7,6 +7,7 @@ import LocalStorageService from '@core/services/local-storage.service';
 import SharedRenderService from '@core/services/shared-render.service';
 import AuthService from '@core/auth/auth.service';
 import AccountsService from '@core/services/api/accounts.service';
+
 import { AccountsResponseI } from '@core/services/api/interfaces';
 import LocalUserI from '@core/services/interfaces';
 
@@ -36,10 +37,7 @@ export default class AccountsPageComponent implements OnInit {
 
   ngOnInit(): void {
     // Emit from observable to indicate navitems change
-    this.sharedRenderService.emitChange([
-      { label: 'Accounts', iconName: 'credit_card', route: 'accounts' },
-      { label: 'Transactions', iconName: 'receipt_long', route: 'transactions' },
-    ]);
+    this.sharedRenderService.emitChange([{ label: 'Accounts', iconName: 'credit_card', route: 'accounts' }]);
     this.hasAccessToken = !!this.localStorageService.loadAccountAccessToken();
     if (this.hasAccessToken) {
       this.initAccountView();

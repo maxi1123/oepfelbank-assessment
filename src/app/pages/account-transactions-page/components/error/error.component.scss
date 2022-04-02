@@ -1,0 +1,9 @@
+@import '../../../../../styles/utils';
+
+.error {
+  color: var(--ob-alert-down);
+}
+
+.back-button {
+  margin-top: 3 * $ob-spacing;
+}

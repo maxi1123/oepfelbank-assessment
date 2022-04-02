@@ -16,7 +16,7 @@ export default class LocalStorageService {
 
   /* eslint-disable */
 
-  setInfo(data: LocalUserI) {
+  setInfo(data: LocalUserI): void {
     const jsonData = JSON.stringify(data);
     sessionStorage.setItem('user', jsonData);
   }

@@ -24,4 +24,5 @@ export interface TransactionI {
 export interface TransactionsResponseI {
   accountId: string;
   transactions: TransactionI[];
+  total: number;
 }

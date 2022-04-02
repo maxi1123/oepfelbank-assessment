@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SplashLogoComponent } from './splash-logo.component';
+import { ErrorComponent } from './error.component';
 
-describe('SplashLogoComponent', () => {
-  let component: SplashLogoComponent;
-  let fixture: ComponentFixture<SplashLogoComponent>;
+describe('ErrorComponent', () => {
+  let component: ErrorComponent;
+  let fixture: ComponentFixture<ErrorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SplashLogoComponent],
+      declarations: [ErrorComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SplashLogoComponent);
+    fixture = TestBed.createComponent(ErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
