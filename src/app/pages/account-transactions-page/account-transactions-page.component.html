@@ -1,6 +1,32 @@
-<h1 class="title" #title>Transactions Overview</h1>
+<h1 class="title">Transactions Overview</h1>
 <h4 class="subtitle">This overview shows all transactions for the selected account.</h4>
-<app-transactions-table
-  [transactionsResponse]="transactionsResponse$"
-  (navEvent)="navigateHome()"
-></app-transactions-table>
+<ng-template #loadingOrError>
+  <ng-container *ngIf="errorObject; else loading">
+    <app-error [error]="errorObject"></app-error>
+  </ng-container>
+  <ng-template #loading>
+    <mat-spinner color="primary" class="spinner"></mat-spinner>
+  </ng-template>
+</ng-template>
+<ng-container *ngIf="selectedAccount$ | async as selectedAccount">
+  <app-account-card [accountData]="selectedAccount" [isTransactionView]="true"></app-account-card>
+</ng-container>
+<ng-container *ngIf="transactionsResponse$ | async as transactionsResponse; else loadingOrError">
+  <div class="overview-wrapper">
+    <div class="svg-wrapper">
+      <app-coins> </app-coins>
+    </div>
+    <h1 class="mat-display-1 total" [ngClass]="transactionsResponse.total < 0 ? 'alert-negative' : ''">
+      {{ transactionsResponse.total }}
+    </h1>
+    <h4 class="currency">{{ transactionsResponse.transactions[0].currency }}</h4>
+  </div>
+  <h4 class="date">Valuta: {{ dateToday }}</h4>
+  <app-transactions-table
+    [transactionsResponse]="transactionsResponse"
+    (navEvent)="navigateHome()"
+  ></app-transactions-table>
+  <button mat-fab color="primary" class="back-button" (click)="navigateHome()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</ng-container>

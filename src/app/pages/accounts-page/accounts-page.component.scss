@@ -9,7 +9,6 @@
 .overview-wrapper {
   @include flex-center;
   justify-content: flex-start;
-  margin-top: 10 * $ob-spacing;
 }
 
 .text-wrapper {
@@ -20,13 +19,13 @@
   font-weight: 600;
 }
 
+.subtitle {
+  padding-bottom: 5 * $ob-spacing;
+}
+
 .subtitle,
 .currency {
   color: var(--ob-font-secondary);
-}
-
-.currency {
-  padding-left: 0.5 * $ob-spacing;
 }
 
 .total {
@@ -34,8 +33,9 @@
 }
 
 .currency {
+  padding-left: 0.5 * $ob-spacing;
   position: relative;
-  top: 4px;
+  top: 5px;
 }
 
 .svg-wrapper {
@@ -43,7 +43,7 @@
 }
 
 .card-container {
-  margin-top: 5 * $ob-spacing;
+  // margin-top: 5 * $ob-spacing;
 }
 
 .alert-negative {

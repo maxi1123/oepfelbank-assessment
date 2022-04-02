@@ -4,10 +4,6 @@
   width: 35px;
 }
 
-.card-container {
-  margin-top: 5 * $ob-spacing;
-}
-
 .card {
   @include box-shadow;
   border: 1px solid rgb(185, 185, 185);
@@ -33,4 +29,16 @@
 
 .alert-negative {
   color: var(--ob-alert-down);
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-hover {
+  &:hover {
+    transition: none;
+    background-color: #fff;
+    cursor: default;
+  }
 }

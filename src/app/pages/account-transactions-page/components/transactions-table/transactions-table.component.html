@@ -8,7 +8,7 @@
 </div>
 <div [hidden]="errorMessage" class="wrapper">
   <table mat-table matSort [dataSource]="dataSource">
-    <caption>
+    <caption [hidden]="true">
       Transactions Overview
     </caption>
     <ng-container matColumnDef="bookingDate">

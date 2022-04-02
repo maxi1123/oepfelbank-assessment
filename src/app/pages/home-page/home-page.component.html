@@ -5,11 +5,11 @@
         <app-splash-logo></app-splash-logo>
       </div>
     </div>
-    <div class="sidenav-list" *ngFor="let itemLabel of navItemLabels">
+    <div class="sidenav-list" *ngFor="let navItem of navItems$ | async">
       <app-sidenav-item
-        [label]="itemLabel.label"
-        [iconName]="itemLabel.iconName"
-        [route]="itemLabel.route"
+        [label]="navItem.label"
+        [iconName]="navItem.iconName"
+        [route]="navItem.route"
       ></app-sidenav-item>
     </div>
   </mat-sidenav>

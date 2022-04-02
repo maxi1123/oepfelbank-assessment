@@ -7,6 +7,7 @@ import LocalStorageService from '@core/services/local-storage.service';
 import SharedRenderService from '@core/services/shared-render.service';
 import AuthService from '@core/auth/auth.service';
 import AccountsService from '@core/services/api/accounts.service';
+
 import { AccountsResponseI } from '@core/services/api/interfaces';
 import LocalUserI from '@core/services/interfaces';
 
@@ -20,7 +21,7 @@ import getCurrentDate from '@utils/date';
 export default class AccountsPageComponent implements OnInit {
   public hasAccessToken: boolean = false;
 
-  public accountsResponse$: Observable<AccountsResponseI> | undefined;
+  public accountsResponse$: Observable<AccountsResponseI>;
 
   public dateToday: string = getCurrentDate();
 
@@ -36,7 +37,7 @@ export default class AccountsPageComponent implements OnInit {
 
   ngOnInit(): void {
     // Emit from observable to indicate navitems change
-    this.sharedRenderService.emitChange();
+    this.sharedRenderService.emitChange([{ label: 'Accounts', iconName: 'credit_card', route: 'accounts' }]);
     this.hasAccessToken = !!this.localStorageService.loadAccountAccessToken();
     if (this.hasAccessToken) {
       this.initAccountView();

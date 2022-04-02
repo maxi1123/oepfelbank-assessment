@@ -6,15 +6,15 @@ import LocalStorageService from '@core/services/local-storage.service';
 
 import * as Endpoints from '@core/constants/endpoints';
 
-import environment from '@environment/environment';
+// import environment from '@environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export default class AuthService {
-  private CLIENT_ID = (environment as any).NATWEST_CLIENT_ID;
+  private CLIENT_ID = 'eNrGKyGMeoXFhzZQNvw7yaqP-hVPVzBeQ5MgkJs0odw=';
 
-  private CLIENT_SECRET = (environment as any).NATWEST_CLIENT_SECRET;
+  private CLIENT_SECRET = 'cE9QB0rkwKjrCp24s5N6P_ji66hfffJJmzsW4wrhsPs=';
 
   constructor(
     private http: HttpClient,
@@ -77,7 +77,6 @@ export default class AuthService {
     const res = await this.http
       .post(`${Endpoints.TOKEN_ENDPOINT}`, body.toString(), { headers: formHeaders })
       .toPromise<any>();
-    console.log(res);
 
     this.localStorageService.setRefreshToken(res.refresh_token);
     this.localStorageService.setAccountAccessToken(res.access_token);
