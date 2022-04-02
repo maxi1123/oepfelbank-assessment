@@ -9,11 +9,12 @@
 .sidenav {
   width: 11rem;
   padding: 3 * $ob-spacing 0;
-  border-right: 0;
+  border-right: 1px solid rgb(233, 233, 233);
+  background-image: url('../../../assets/background.png');
 }
 
 .container {
-  background-color: var(--ob-background);
+  background-image: url('../../../assets/background.png');
 }
 
 .content-wrapper {
