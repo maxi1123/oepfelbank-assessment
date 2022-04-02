@@ -19,12 +19,14 @@
   font-weight: 600;
 }
 
-.subtitle {
+.subtitle,
+.date {
   padding-bottom: 5 * $ob-spacing;
 }
 
 .subtitle,
-.currency {
+.currency,
+.date {
   color: var(--ob-font-secondary);
 }
 
@@ -40,10 +42,6 @@
 
 .svg-wrapper {
   width: 40px;
-}
-
-.card-container {
-  // margin-top: 5 * $ob-spacing;
 }
 
 .alert-negative {

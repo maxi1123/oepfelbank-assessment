@@ -21,7 +21,7 @@
       </h1>
       <h4 class="currency">{{ accountsResponse.accounts[0].currency }}</h4>
     </div>
-    <h4 class="subtitle">Valuta: {{ dateToday }}</h4>
+    <h4 class="date">Valuta: {{ dateToday }}</h4>
     <div class="card-container">
       <app-account-card
         *ngFor="let account of accountsResponse.accounts"
