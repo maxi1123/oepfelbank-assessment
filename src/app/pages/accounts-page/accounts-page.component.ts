@@ -20,7 +20,7 @@ import getCurrentDate from '@utils/date';
 export default class AccountsPageComponent implements OnInit {
   public hasAccessToken: boolean = false;
 
-  public accountsResponse$: Observable<AccountsResponseI> | undefined;
+  public accountsResponse$: Observable<AccountsResponseI>;
 
   public dateToday: string = getCurrentDate();
 
@@ -36,7 +36,10 @@ export default class AccountsPageComponent implements OnInit {
 
   ngOnInit(): void {
     // Emit from observable to indicate navitems change
-    this.sharedRenderService.emitChange();
+    this.sharedRenderService.emitChange([
+      { label: 'Accounts', iconName: 'credit_card', route: 'accounts' },
+      { label: 'Transactions', iconName: 'receipt_long', route: 'transactions' },
+    ]);
     this.hasAccessToken = !!this.localStorageService.loadAccountAccessToken();
     if (this.hasAccessToken) {
       this.initAccountView();

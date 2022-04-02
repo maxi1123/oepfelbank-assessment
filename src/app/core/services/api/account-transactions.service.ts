@@ -18,6 +18,8 @@ export default class AccountTransactionsService {
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) {}
 
   public getAccountTransactions(id: string): Observable<TransactionsResponseI> {
-    return this.http.get<TransactionsResponseI>(`http://localhost:3000/api/v1/transactions/${id}`);
+    return this.http.get<TransactionsResponseI>(`http://localhost:3000/api/v1/transactions/${id}`, {
+      headers: this.authHeaders,
+    });
   }
 }

@@ -24,7 +24,10 @@ export default class AccountTransactionsPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sharedRenderService.emitChange();
+    this.sharedRenderService.emitChange([
+      { label: 'Accounts', iconName: 'credit_card', route: 'accounts' },
+      { label: 'Transactions', iconName: 'receipt_long', route: 'transactions' },
+    ]);
     const routeParams = this.route.snapshot.paramMap;
     this.initTransactionsView(routeParams.get('id') as string);
   }
