@@ -1,0 +1,59 @@
+<h1 class="title">Transactions Overview</h1>
+<h4 class="subtitle">This overview shows all transactions for the selected account.</h4>
+<ng-template #loadingOrError>
+  <ng-container *ngIf="errorObject; else loading">
+    <app-error [error]="errorObject"></app-error>
+  </ng-container>
+  <ng-template #loading>
+    <mat-spinner color="primary" class="spinner"></mat-spinner>
+  </ng-template>
+</ng-template>
+<ng-container *ngIf="selectedAccount$ | async as selectedAccount">
+  <app-account-card [accountData]="selectedAccount" [isTransactionView]="true"></app-account-card>
+</ng-container>
+<div class="bottom-container">
+  <div
+    class="left-section"
+    *ngIf="transactionsResponse$ | async as transactionsResponse; else loadingOrError"
+  >
+    <div class="overview-wrapper">
+      <div class="svg-wrapper">
+        <app-coins> </app-coins>
+      </div>
+      <h1 class="mat-display-1 total" [ngClass]="transactionsResponse.total < 0 ? 'alert-negative' : ''">
+        {{ transactionsResponse.total }}
+      </h1>
+      <h4 class="currency">{{ transactionsResponse.transactions[0].currency }}</h4>
+    </div>
+    <h4 class="date">Valuta: {{ dateToday }}</h4>
+    <app-transactions-table
+      [transactionsResponse]="transactionsResponse"
+      (navEvent)="navigateHome()"
+    ></app-transactions-table>
+    <button mat-fab color="primary" class="back-button" (click)="navigateHome()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div style="width: 20px"></div>
+  <div class="right-section" *ngIf="pendingTransactionsResponse$ | async as pendingTransactionsResponse">
+    <div class="overview-wrapper">
+      <div class="svg-wrapper">
+        <mat-icon class="icon-display">more_time</mat-icon>
+      </div>
+      <h1
+        class="mat-display-1 total"
+        [ngClass]="pendingTransactionsResponse.total < 0 ? 'alert-negative' : ''"
+      >
+        {{ pendingTransactionsResponse.total }}
+      </h1>
+      <h4 class="currency">{{ pendingTransactionsResponse.pendingTransactions[0].currency }}</h4>
+    </div>
+    <h4 class="date">Valuta: {{ dateToday }}</h4>
+    <ng-container *ngIf="pendingTransactionsResponse.pendingTransactions !== []">
+      <app-pending-transactions
+        [pendingTransactionsResponse]="pendingTransactionsResponse"
+        (navEvent)="navigateHome()"
+      ></app-pending-transactions>
+    </ng-container>
+  </div>
+</div>

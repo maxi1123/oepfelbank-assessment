@@ -9,17 +9,19 @@ import SharedRenderService from '@core/services/shared-render.service';
 import AccountTransactionsService from '@core/services/api/account-transactions.service';
 import AccountsService from '@core/services/api/accounts.service';
 
-import { AccountI, TransactionsResponseI } from '@core/services/api/interfaces';
+import { AccountI, PendingTransactionsResponseI, TransactionsResponseI } from '@core/services/api/interfaces';
 
 import getCurrentDate from '@utils/date';
 
 @Component({
-  selector: 'app-account-transactions-page',
-  templateUrl: './account-transactions-page.component.html',
-  styleUrls: ['./account-transactions-page.component.scss'],
+  selector: 'app-transactions-page',
+  templateUrl: './transactions-page.component.html',
+  styleUrls: ['./transactions-page.component.scss'],
 })
-export default class AccountTransactionsPageComponent implements OnInit {
+export default class TransactionsPageComponent implements OnInit {
   public transactionsResponse$: Observable<TransactionsResponseI>;
+
+  public pendingTransactionsResponse$: Observable<PendingTransactionsResponseI>;
 
   public selectedAccount$: Observable<AccountI>;
 
@@ -41,10 +43,20 @@ export default class AccountTransactionsPageComponent implements OnInit {
     const id = routeParams.get('id') as string;
     this.initSelectedAccountView(id);
     this.initTransactionsView(id);
+    this.initPendingTransactionsView(id);
   }
 
   private initTransactionsView(id: string): void {
-    this.transactionsResponse$ = this.transactionsService.getAccountTransactions(id).pipe(
+    this.transactionsResponse$ = this.transactionsService.getTransactions(id).pipe(
+      catchError((err: HttpErrorResponse) => {
+        this.errorObject = err;
+        return throwError(err);
+      }),
+    );
+  }
+
+  private initPendingTransactionsView(id: string) {
+    this.pendingTransactionsResponse$ = this.transactionsService.getPendingTransactions(id).pipe(
       catchError((err: HttpErrorResponse) => {
         this.errorObject = err;
         return throwError(err);

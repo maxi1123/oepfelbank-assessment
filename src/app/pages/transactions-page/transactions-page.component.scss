@@ -4,6 +4,15 @@
   font-weight: 600;
 }
 
+.bottom-container {
+  display: flex;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+}
+
 .subtitle,
 .currency,
 .date {
@@ -41,4 +50,10 @@
 
 .back-button {
   margin-top: 3 * $ob-spacing;
+}
+
+.icon-display {
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
 }

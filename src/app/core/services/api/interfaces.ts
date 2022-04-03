@@ -26,3 +26,16 @@ export interface TransactionsResponseI {
   transactions: TransactionI[];
   total: number;
 }
+
+export interface PendingTransactionI {
+  schedDateTime: string;
+  amount: string;
+  currency: string;
+  creditorAccount: string;
+}
+
+export interface PendingTransactionsResponseI {
+  accountId: string;
+  pendingTransactions: PendingTransactionI[];
+  total: number;
+}

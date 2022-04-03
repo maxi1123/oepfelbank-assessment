@@ -1,0 +1,13 @@
+@import '../../../../../styles/utils';
+
+table {
+  @include box-shadow;
+  width: 100%;
+  border: 1px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  padding: $ob-spacing;
+}
+
+.alert-negative {
+  color: var(--ob-alert-down);
+}
