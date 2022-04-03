@@ -27,5 +27,5 @@ jobs:
         run: npm run prettify-check
       - name: ESLint
         run: npm run lint
-      # - name: Build
-      #   run: npm run build:ci
+      - name: Build
+        run: npm run build:ci

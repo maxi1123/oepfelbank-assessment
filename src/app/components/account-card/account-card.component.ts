@@ -1,11 +1,13 @@
-import { Component, Input } from '@angular/core';
+/* eslint-disable */
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+/* eslint-enable */
 
 import { AccountI } from '@core/services/api/interfaces';
 
 @Component({
   selector: 'app-account-card',
   template: `
-    <div [ngClass]="isTransactionView ? 'card no-margin no-hover' : 'card'">
+    <div (click)="triggerNav()" [ngClass]="isTransactionView ? 'card no-margin no-hover' : 'card'">
       <div class="top-bar"></div>
       <div class="body-wrapper">
         <div class="logo-wrapper">
@@ -27,4 +29,10 @@ export default class AccountCardComponent {
   @Input() accountData: AccountI;
 
   @Input() isTransactionView: boolean;
+
+  @Output() navEvent = new EventEmitter();
+
+  public triggerNav(): void {
+    this.navEvent.emit();
+  }
 }
