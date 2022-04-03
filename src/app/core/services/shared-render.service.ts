@@ -11,7 +11,7 @@ export default class SharedRenderService {
 
   changeEmitted$ = this.emitChangeSource.asObservable();
 
-  emitChange(navItems: NavItemI[]) {
+  emitChange(navItems: NavItemI[]): void {
     this.emitChangeSource.next(navItems);
   }
 }

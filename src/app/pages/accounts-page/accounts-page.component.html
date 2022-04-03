@@ -1,4 +1,4 @@
-<div *ngIf="!hasAccessToken" class="wrapper">
+<div *ngIf="!hasAccessToken">
   <div class="text-wrapper">
     <h1 class="title">Good Day, {{ user.name }}!</h1>
     <h4 class="subtitle">Please connect your NatWest accounts to allow us to show detailed information.</h4>
@@ -26,7 +26,7 @@
       <app-account-card
         *ngFor="let account of accountsResponse.accounts"
         [accountData]="account"
-        (click)="navigate(account.accountId)"
+        (navEvent)="navigate(account.accountId)"
       ></app-account-card>
     </div>
   </div>
