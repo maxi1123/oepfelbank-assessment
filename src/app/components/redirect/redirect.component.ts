@@ -28,7 +28,6 @@ export default class RedirectComponent implements OnInit, OnDestroy {
       .subscribe((res) => {
         if (res.code) {
           this.auth.exchangeToken(res.code);
-          console.log(res.code);
         }
       });
   }

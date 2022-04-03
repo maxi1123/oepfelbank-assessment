@@ -6,15 +6,11 @@ import LocalStorageService from '@core/services/local-storage.service';
 
 import * as Endpoints from '@core/constants/endpoints';
 
-// import environment from '@environment/environment';
-
 @Injectable({
   providedIn: 'root',
 })
 export default class AuthService {
   private CLIENT_ID = 'eNrGKyGMeoXFhzZQNvw7yaqP-hVPVzBeQ5MgkJs0odw=';
-
-  private CLIENT_SECRET = 'cE9QB0rkwKjrCp24s5N6P_ji66hfffJJmzsW4wrhsPs=';
 
   constructor(
     private http: HttpClient,
@@ -23,63 +19,15 @@ export default class AuthService {
   ) {}
 
   public async initUIFlow(): Promise<void> {
-    const formHeaders = {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    };
-
-    const body = new URLSearchParams();
-    body.set('grant_type', 'client_credentials');
-    body.set('client_id', `${this.CLIENT_ID}`);
-    body.set('client_secret', `${this.CLIENT_SECRET}`);
-    body.set('scope', 'accounts');
-
-    const requestToken = await this.http
-      .post(`${Endpoints.TOKEN_ENDPOINT}`, body.toString(), { headers: formHeaders })
-      .toPromise<any>();
-
-    const authHeaders = {
-      Authorization: `Bearer ${requestToken.access_token}`,
-    };
-
-    const authBody = {
-      Data: {
-        Permissions: [
-          'ReadAccountsDetail',
-          'ReadBalances',
-          'ReadTransactionsCredits',
-          'ReadTransactionsDebits',
-          'ReadTransactionsDetail',
-        ],
-      },
-      Risk: {},
-    };
-
-    const res = await this.http
-      .post(`${Endpoints.BASE_API_ENDPOINT}/open-banking/v3.1/aisp/account-access-consents`, authBody, {
-        headers: authHeaders,
-      })
-      .toPromise<any>();
-    window.location.href = `${Endpoints.AUTHORIZE_ENDPOINT}?client_id=${this.CLIENT_ID}&response_type=code id_token&scope=openid accounts&redirect_uri=${Endpoints.REDIRECT_URI}&state=ABC&request=${res.Data.ConsentId}`;
+    const consentId = await this.http.get('http://localhost:3000/api/v1/auth').toPromise<any>();
+    window.location.href = `${Endpoints.AUTHORIZE_ENDPOINT}?client_id=${this.CLIENT_ID}&response_type=code id_token&scope=openid accounts&redirect_uri=${Endpoints.REDIRECT_URI}&state=ABC&request=${consentId}`;
   }
 
   public async exchangeToken(code: string): Promise<void> {
-    const formHeaders = {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    };
-
-    const body = new URLSearchParams();
-    body.set('grant_type', 'authorization_code');
-    body.set('client_id', this.CLIENT_ID);
-    body.set('client_secret', this.CLIENT_SECRET);
-    body.set('code', code);
-    body.set('redirect_uri', Endpoints.REDIRECT_URI);
-
-    const res = await this.http
-      .post(`${Endpoints.TOKEN_ENDPOINT}`, body.toString(), { headers: formHeaders })
+    const accessToken = await this.http
+      .get(`http://localhost:3000/api/v1/auth/token/${code}`)
       .toPromise<any>();
-
-    this.localStorageService.setRefreshToken(res.refresh_token);
-    this.localStorageService.setAccountAccessToken(res.access_token);
+    this.localStorageService.setAccountAccessToken(accessToken);
     this.router.navigate(['home', 'accounts']);
   }
 }

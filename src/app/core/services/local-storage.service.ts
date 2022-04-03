@@ -26,12 +26,6 @@ export default class LocalStorageService {
     return data;
   }
 
-  /* eslint-disable */
-
-  setRefreshToken(token: string): void {
-    this.localStorage.setItem('refresh _token', token);
-  }
-
   setAccountAccessToken(token: string): void {
     this.localStorage.setItem('access_token', token);
   }
