@@ -15,13 +15,16 @@
 
 .panel-wrapper {
   display: flex;
+  flex-direction: column;
+  max-width: 1420px;
 }
 
 .holding-container {
   display: flex;
-  justify-content: space-between;
   padding: $ob-spacing 0 0;
-  min-width: 650px;
+  min-width: 550px;
+  flex-wrap: wrap;
+  gap: 2 * $ob-spacing;
 }
 
 @media all and (max-width: 1000px) {

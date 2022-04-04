@@ -1,3 +1,5 @@
 export default interface LocalUserI {
-  name: string;
+  lastName: string;
+  firstName: string;
+  username: string;
 }

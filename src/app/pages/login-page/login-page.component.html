@@ -1,0 +1,56 @@
+<div *ngIf="showFakeSplash" class="splash-container">
+  <app-splash-logo style="width: 700px"></app-splash-logo>
+</div>
+<div *ngIf="!showFakeSplash" class="wrapper">
+  <ng-container *ngIf="!showStepper">
+    <div class="logo-display">
+      <app-splash-logo></app-splash-logo>
+    </div>
+    <div class="text-wrapper">
+      <h1 class="title">Welcome to Oepfelbank</h1>
+      <h4 class="subtitle">Banking made simple</h4>
+    </div>
+    <button mat-flat-button color="primary" (click)="toggleStepper()">
+      <mat-icon>login</mat-icon><span style="margin-left: 10px">Enter</span>
+    </button>
+  </ng-container>
+  <mat-stepper orientation="vertical" linear class="stepper" *ngIf="showStepper">
+    <mat-step class="step" [stepControl]="firstFormGroup" label="Provide your last name">
+      <form class="form" [formGroup]="firstFormGroup">
+        <mat-form-field class="form-group" appearance="standard">
+          <mat-label>Last name</mat-label>
+          <input required matInput type="text" name="name" formControlName="firstCtrl" />
+          <mat-error>Please enter a last name</mat-error>
+        </mat-form-field>
+        <button mat-button matStepperNext>Next</button>
+      </form>
+    </mat-step>
+    <mat-step class="step" [stepControl]="secondFormGroup" label="Provide your first name">
+      <form class="form" [formGroup]="secondFormGroup">
+        <mat-form-field class="form-group" appearance="standard">
+          <mat-label>First name</mat-label>
+          <input required matInput type="text" name="surname" formControlName="secondCtrl" />
+          <mat-error>Please enter a first name</mat-error>
+        </mat-form-field>
+      </form>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step class="step" [stepControl]="thirdFormGroup" label="Chose a your username">
+      <form class="form" [formGroup]="thirdFormGroup">
+        <mat-form-field class="form-group" appearance="standard">
+          <mat-label>Username</mat-label>
+          <input required matInput type="text" name="username" formControlName="thirdCtrl" />
+          <mat-error>Please enter a username</mat-error>
+        </mat-form-field>
+      </form>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="mockAuth()">Submit</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+  <p class="footer">Made with ❤️🍎 by Max</p>
+</div>

@@ -1,6 +1,6 @@
 <div *ngIf="!hasAccessToken">
   <div class="text-wrapper">
-    <h1 class="title">Good Day, {{ user.name }}!</h1>
+    <h1 class="title">Good Day, {{ user.firstName }} {{ user.lastName }}!</h1>
     <h4 class="subtitle">
       Please connect your NatWest accounts to allow us to show detailed investments information.
     </h4>
@@ -22,10 +22,14 @@
     <ng-container *ngIf="investmentsResponse.accounts[0]?.accountId; else noHoldings">
       <app-overview [total]="investmentsResponse.total" currency="GBP" icon="account_balance"></app-overview>
       <div class="panel-wrapper">
-        <app-panel [data]="investmentsResponse">
+        <app-panel
+          *ngFor="let investmentAccount of investmentsResponse.accounts"
+          style="margin-bottom: 50px"
+          [data]="investmentAccount"
+        >
           <div class="holding-container">
             <app-holding-card
-              *ngFor="let holding of investmentsResponse.accounts[0].holdings"
+              *ngFor="let holding of investmentAccount.holdings"
               [holding]="holding"
             ></app-holding-card>
           </div>

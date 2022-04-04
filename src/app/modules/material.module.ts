@@ -8,6 +8,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [],
@@ -20,6 +23,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSortModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     MatSidenavModule,
@@ -30,6 +36,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSortModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export default class MaterialModule {}

@@ -15,6 +15,7 @@
 
 .right-section {
   flex: 1;
+  white-space: nowrap;
 }
 
 .subtitle {
@@ -23,5 +24,15 @@
 }
 
 .back-button {
-  margin-top: 3 * $ob-spacing;
+  margin: 3 * $ob-spacing 0;
+}
+
+.spacer {
+  width: 30px;
+}
+
+@media all and (max-width: 900px) {
+  .spacer {
+    display: none;
+  }
 }

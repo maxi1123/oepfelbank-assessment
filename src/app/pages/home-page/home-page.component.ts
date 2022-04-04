@@ -12,8 +12,14 @@ export default class HomePageComponent {
 
   public sidenavOpen: boolean = true;
 
+  /* eslint-disable */
   public navItems: NavItemI[] = [
-    { label: 'Accounts', iconName: 'credit_card', route: 'accounts' },
-    { label: 'Investments', iconName: 'show_chart', route: 'investments' },
+    {
+      label: 'Accounts',
+      iconName: 'credit_card',
+      route: ['home', 'accounts'],
+    },
+    { label: 'Investments', iconName: 'show_chart', route: ['home', 'investments'] },
+    { label: 'Logout', iconName: 'logout', route: ['login'], isLogout: true },
   ];
 }
