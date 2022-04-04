@@ -16,44 +16,39 @@
     class="left-section"
     *ngIf="transactionsResponse$ | async as transactionsResponse; else loadingOrError"
   >
-    <div class="overview-wrapper">
-      <div class="svg-wrapper">
-        <app-coins> </app-coins>
-      </div>
-      <h1 class="mat-display-1 total" [ngClass]="transactionsResponse.total < 0 ? 'alert-negative' : ''">
-        {{ transactionsResponse.total }}
-      </h1>
-      <h4 class="currency">{{ transactionsResponse.transactions[0].currency }}</h4>
-    </div>
-    <h4 class="date">Valuta: {{ dateToday }}</h4>
+    <app-overview
+      [total]="transactionsResponse.total"
+      [currency]="transactionsResponse.transactions[0]?.currency"
+      icon="payments"
+    ></app-overview>
     <app-transactions-table
+      *ngIf="transactionsResponse.transactions[0]?.transactionId; else noTransactions"
       [transactionsResponse]="transactionsResponse"
       (navEvent)="navigateHome()"
     ></app-transactions-table>
-    <button mat-fab color="primary" class="back-button" (click)="navigateHome()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
+    <ng-template #noTransactions>
+      <h4>No recorded transactions.</h4>
+    </ng-template>
   </div>
-  <div style="width: 20px"></div>
+  <div style="width: 30px"></div>
   <div class="right-section" *ngIf="pendingTransactionsResponse$ | async as pendingTransactionsResponse">
-    <div class="overview-wrapper">
-      <div class="svg-wrapper">
-        <mat-icon class="icon-display">more_time</mat-icon>
-      </div>
-      <h1
-        class="mat-display-1 total"
-        [ngClass]="pendingTransactionsResponse.total < 0 ? 'alert-negative' : ''"
-      >
-        {{ pendingTransactionsResponse.total }}
-      </h1>
-      <h4 class="currency">{{ pendingTransactionsResponse.pendingTransactions[0].currency }}</h4>
-    </div>
-    <h4 class="date">Valuta: {{ dateToday }}</h4>
-    <ng-container *ngIf="pendingTransactionsResponse.pendingTransactions !== []">
+    <div>
+      <app-overview
+        [total]="pendingTransactionsResponse.total"
+        [currency]="pendingTransactionsResponse.transactions[0]?.currency"
+        icon="more_time"
+      ></app-overview>
       <app-pending-transactions
+        *ngIf="pendingTransactionsResponse.transactions[0]?.creditorAccount; else noPending"
         [pendingTransactionsResponse]="pendingTransactionsResponse"
         (navEvent)="navigateHome()"
       ></app-pending-transactions>
-    </ng-container>
+      <ng-template #noPending>
+        <h4>No pending transactions.</h4>
+      </ng-template>
+    </div>
   </div>
 </div>
+<button mat-fab color="primary" class="back-button" (click)="navigateHome()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

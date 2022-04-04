@@ -11,8 +11,6 @@ import AccountsService from '@core/services/api/accounts.service';
 
 import { AccountI, PendingTransactionsResponseI, TransactionsResponseI } from '@core/services/api/interfaces';
 
-import getCurrentDate from '@utils/date';
-
 @Component({
   selector: 'app-transactions-page',
   templateUrl: './transactions-page.component.html',
@@ -25,8 +23,6 @@ export default class TransactionsPageComponent implements OnInit {
 
   public selectedAccount$: Observable<AccountI>;
 
-  public dateToday: string = getCurrentDate();
-
   public errorObject: any;
 
   constructor(
@@ -35,10 +31,11 @@ export default class TransactionsPageComponent implements OnInit {
     private accountService: AccountsService,
     private route: ActivatedRoute,
     private router: Router,
-  ) {}
+  ) {
+    this.sharedRenderService.emitChange([{ label: 'Accounts', iconName: 'credit_card', route: 'accounts' }]);
+  }
 
   ngOnInit(): void {
-    this.sharedRenderService.emitChange([{ label: 'Accounts', iconName: 'credit_card', route: 'accounts' }]);
     const routeParams = this.route.snapshot.paramMap;
     const id = routeParams.get('id') as string;
     this.initSelectedAccountView(id);

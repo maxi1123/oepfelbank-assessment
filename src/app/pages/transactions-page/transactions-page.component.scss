@@ -6,54 +6,22 @@
 
 .bottom-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.left-section,
+.left-section {
+  flex: 1.5;
+}
+
 .right-section {
   flex: 1;
 }
 
-.subtitle,
-.currency,
-.date {
+.subtitle {
   color: var(--ob-font-secondary);
-}
-
-.subtitle,
-.date {
   padding-bottom: 5 * $ob-spacing;
-}
-
-.currency {
-  padding-left: 0.5 * $ob-spacing;
-  position: relative;
-  top: 5px;
-}
-
-.overview-wrapper {
-  @include flex-center;
-  justify-content: flex-start;
-  margin-top: 5 * $ob-spacing;
-}
-
-.total {
-  padding-left: 2 * $ob-spacing;
-}
-
-.svg-wrapper {
-  width: 40px;
-}
-
-.alert-negative {
-  color: var(--ob-alert-down);
 }
 
 .back-button {
   margin-top: 3 * $ob-spacing;
-}
-
-.icon-display {
-  font-size: 40px;
-  height: 40px;
-  width: 40px;
 }

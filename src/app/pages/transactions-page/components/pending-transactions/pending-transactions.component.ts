@@ -34,6 +34,6 @@ export default class PendingTransactionsComponent implements OnInit {
   }
 
   public initTable(): void {
-    this.dataSource = new MatTableDataSource(this.pendingTransactionsResponse.pendingTransactions);
+    this.dataSource = new MatTableDataSource(this.pendingTransactionsResponse.transactions);
   }
 }

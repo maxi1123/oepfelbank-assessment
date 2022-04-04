@@ -1,0 +1,36 @@
+<div *ngIf="!hasAccessToken">
+  <div class="text-wrapper">
+    <h1 class="title">Good Day, {{ user.name }}!</h1>
+    <h4 class="subtitle">
+      Please connect your NatWest accounts to allow us to show detailed investments information.
+    </h4>
+  </div>
+  <button mat-flat-button color="primary" (click)="initUIFlow()">Connect Accounts</button>
+</div>
+<div *ngIf="hasAccessToken">
+  <h1 class="title">Investments Overview</h1>
+  <h4 class="subtitle" style="padding: 0">
+    This overview shows your investment account and active holdings.
+  </h4>
+  <ng-template #loading>
+    <mat-spinner color="primary" class="spinner"></mat-spinner>
+  </ng-template>
+  <ng-container *ngIf="investments$ | async as investmentsResponse; else loading">
+    <ng-template #noHoldings>
+      <h4 style="color: var(--ob-alert-down); padding-top: 50px">No active holdings.</h4>
+    </ng-template>
+    <ng-container *ngIf="investmentsResponse.accounts[0]?.accountId; else noHoldings">
+      <app-overview [total]="investmentsResponse.total" currency="GBP" icon="account_balance"></app-overview>
+      <div class="panel-wrapper">
+        <app-panel [data]="investmentsResponse">
+          <div class="holding-container">
+            <app-holding-card
+              *ngFor="let holding of investmentsResponse.accounts[0].holdings"
+              [holding]="holding"
+            ></app-holding-card>
+          </div>
+        </app-panel>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

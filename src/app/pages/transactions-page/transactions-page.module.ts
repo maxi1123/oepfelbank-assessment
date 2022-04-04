@@ -9,11 +9,12 @@ import CoinsModule from '@components/coins/coins.module';
 import AccountCardModule from '@components/account-card/account-card.module';
 import MaterialModule from '@modules/material.module';
 
-import ErrorComponent from '@pages/transactions-page/components/error/error.component';
 import PendingTransactionsModule from '@pages/transactions-page/components/pending-transactions/pending-transactions.module';
+import OverviewModule from '@components/overview/overview.module';
+import ErrorModule from '@components/error/error.module';
 
 @NgModule({
-  declarations: [TransactionsPageComponent, ErrorComponent],
+  declarations: [TransactionsPageComponent],
   imports: [
     CommonModule,
     TransactionsPageRoutingModule,
@@ -22,6 +23,8 @@ import PendingTransactionsModule from '@pages/transactions-page/components/pendi
     CoinsModule,
     AccountCardModule,
     MaterialModule,
+    OverviewModule,
+    ErrorModule,
   ],
 })
 

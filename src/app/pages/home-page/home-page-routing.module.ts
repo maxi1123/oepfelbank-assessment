@@ -29,6 +29,12 @@ const routes: Routes = [
           import('../transactions-page/transactions-page.module').then((m) => m.TransactionsPageModule),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'investments',
+        loadChildren: () =>
+          import('../investments-page/investments-page.module').then((m) => m.InvestmentsPageModule),
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];

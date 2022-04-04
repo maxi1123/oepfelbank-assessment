@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 
-import SharedRenderService from '@core/services/shared-render.service';
 import NavItemI from '@pages/home-page/interfaces';
 
 @Component({
@@ -14,7 +12,8 @@ export default class HomePageComponent {
 
   public sidenavOpen: boolean = true;
 
-  public navItems$: Observable<NavItemI[]> = this.sharedRenderService.changeEmitted$;
-
-  constructor(private sharedRenderService: SharedRenderService) {}
+  public navItems: NavItemI[] = [
+    { label: 'Accounts', iconName: 'credit_card', route: 'accounts' },
+    { label: 'Investments', iconName: 'show_chart', route: 'investments' },
+  ];
 }
