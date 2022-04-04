@@ -5,7 +5,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import SharedRenderService from '@core/services/shared-render.service';
 import AccountTransactionsService from '@core/services/api/account-transactions.service';
 import AccountsService from '@core/services/api/accounts.service';
 
@@ -26,14 +25,11 @@ export default class TransactionsPageComponent implements OnInit {
   public errorObject: any;
 
   constructor(
-    private sharedRenderService: SharedRenderService,
     private transactionsService: AccountTransactionsService,
     private accountService: AccountsService,
     private route: ActivatedRoute,
     private router: Router,
-  ) {
-    this.sharedRenderService.emitChange([{ label: 'Accounts', iconName: 'credit_card', route: 'accounts' }]);
-  }
+  ) {}
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;

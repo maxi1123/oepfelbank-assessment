@@ -18,7 +18,8 @@
 }
 
 .content-wrapper {
-  padding: 10 * $ob-spacing 6 * $ob-spacing;
+  padding: 7 * $ob-spacing 6 * $ob-spacing;
+  min-width: 660px;
 }
 
 .header-logo {

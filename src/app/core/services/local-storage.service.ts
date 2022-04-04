@@ -26,6 +26,10 @@ export default class LocalStorageService {
     return data;
   }
 
+  removeUser(): void {
+    sessionStorage.removeItem('user');
+  }
+
   setAccountAccessToken(token: string): void {
     this.localStorage.setItem('access_token', token);
   }

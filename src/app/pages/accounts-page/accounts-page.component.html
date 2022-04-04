@@ -1,6 +1,6 @@
 <div *ngIf="!hasAccessToken">
   <div class="text-wrapper">
-    <h1 class="title">Good Day, {{ user.name }}!</h1>
+    <h1 class="title">Good Day, {{ user.firstName }} {{ user.lastName }}!</h1>
     <h4 class="subtitle">Please connect your NatWest accounts to allow us to show detailed information.</h4>
   </div>
   <button mat-flat-button color="primary" (click)="initUIFlow()">Connect Accounts</button>

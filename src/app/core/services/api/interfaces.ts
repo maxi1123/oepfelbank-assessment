@@ -63,7 +63,7 @@ export interface InvestmentTransactionI {
 
 export interface InvestmentAccountI {
   accountId: string;
-  balance: string;
+  balance: number;
   holdings: HoldingI[];
   transactions: InvestmentTransactionI[];
 }

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import LocalStorageService from '@core/services/local-storage.service';
-import SharedRenderService from '@core/services/shared-render.service';
+
 import AuthService from '@core/auth/auth.service';
 import AccountsService from '@core/services/api/accounts.service';
 
@@ -29,16 +29,10 @@ export default class AccountsPageComponent implements OnInit {
 
   constructor(
     private localStorageService: LocalStorageService,
-    private sharedRenderService: SharedRenderService,
     private auth: AuthService,
     private accountsService: AccountsService,
     private router: Router,
-  ) {
-    this.sharedRenderService.emitChange([
-      { label: 'Accounts', iconName: 'credit_card', route: 'accounts' },
-      { label: 'Investments', iconName: 'show_chart', route: 'investments' },
-    ]);
-  }
+  ) {}
 
   ngOnInit(): void {
     // Emit from observable to indicate navitems change
