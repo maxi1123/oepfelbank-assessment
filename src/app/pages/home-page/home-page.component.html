@@ -5,7 +5,7 @@
         <app-splash-logo></app-splash-logo>
       </div>
     </div>
-    <div class="sidenav-list" *ngFor="let navItem of navItems$ | async">
+    <div class="sidenav-list" *ngFor="let navItem of navItems">
       <app-sidenav-item
         [label]="navItem.label"
         [iconName]="navItem.iconName"

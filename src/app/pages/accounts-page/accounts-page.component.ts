@@ -33,11 +33,15 @@ export default class AccountsPageComponent implements OnInit {
     private auth: AuthService,
     private accountsService: AccountsService,
     private router: Router,
-  ) {}
+  ) {
+    this.sharedRenderService.emitChange([
+      { label: 'Accounts', iconName: 'credit_card', route: 'accounts' },
+      { label: 'Investments', iconName: 'show_chart', route: 'investments' },
+    ]);
+  }
 
   ngOnInit(): void {
     // Emit from observable to indicate navitems change
-    this.sharedRenderService.emitChange([{ label: 'Accounts', iconName: 'credit_card', route: 'accounts' }]);
     this.hasAccessToken = !!this.localStorageService.loadAccountAccessToken();
     if (this.hasAccessToken) {
       this.initAccountView();

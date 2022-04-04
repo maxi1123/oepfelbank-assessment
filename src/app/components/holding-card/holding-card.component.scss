@@ -1,0 +1,50 @@
+@import '../../../styles/utils';
+
+.holding {
+  @include box-shadow;
+  align-items: flex-end;
+  margin-bottom: 2 * $ob-spacing;
+  min-width: 300px;
+  background-color: #fff;
+  //   border: 1px solid var(--ob-button);
+  border-radius: 10px;
+
+  &:hover {
+    @include hover-trans;
+  }
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0;
+  background-color: #ca3a43;
+  height: 10px;
+}
+
+.card-body {
+  padding: $ob-spacing 2 * $ob-spacing;
+}
+
+.holding-name {
+  padding-bottom: 2 * $ob-spacing;
+}
+
+.body-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2 * $ob-spacing;
+}
+
+.icon-display {
+  font-size: 25px;
+  height: 25px;
+  width: 25px;
+  margin-right: $ob-spacing;
+}
+
+.green {
+  color: var(--ob-alert-up);
+}
+
+.data-point {
+  padding-bottom: 0.5 * $ob-spacing;
+}

@@ -1,0 +1,54 @@
+<h1 class="title">Transactions Overview</h1>
+<h4 class="subtitle">This overview shows all transactions for the selected account.</h4>
+<ng-template #loadingOrError>
+  <ng-container *ngIf="errorObject; else loading">
+    <app-error [error]="errorObject"></app-error>
+  </ng-container>
+  <ng-template #loading>
+    <mat-spinner color="primary" class="spinner"></mat-spinner>
+  </ng-template>
+</ng-template>
+<ng-container *ngIf="selectedAccount$ | async as selectedAccount">
+  <app-account-card [accountData]="selectedAccount" [isTransactionView]="true"></app-account-card>
+</ng-container>
+<div class="bottom-container">
+  <div
+    class="left-section"
+    *ngIf="transactionsResponse$ | async as transactionsResponse; else loadingOrError"
+  >
+    <app-overview
+      [total]="transactionsResponse.total"
+      [currency]="transactionsResponse.transactions[0]?.currency"
+      icon="payments"
+    ></app-overview>
+    <app-transactions-table
+      *ngIf="transactionsResponse.transactions[0]?.transactionId; else noTransactions"
+      [transactionsResponse]="transactionsResponse"
+      (navEvent)="navigateHome()"
+    ></app-transactions-table>
+    <ng-template #noTransactions>
+      <h4>No recorded transactions.</h4>
+    </ng-template>
+  </div>
+  <div style="width: 30px"></div>
+  <div class="right-section" *ngIf="pendingTransactionsResponse$ | async as pendingTransactionsResponse">
+    <div>
+      <app-overview
+        [total]="pendingTransactionsResponse.total"
+        [currency]="pendingTransactionsResponse.transactions[0]?.currency"
+        icon="more_time"
+      ></app-overview>
+      <app-pending-transactions
+        *ngIf="pendingTransactionsResponse.transactions[0]?.creditorAccount; else noPending"
+        [pendingTransactionsResponse]="pendingTransactionsResponse"
+        (navEvent)="navigateHome()"
+      ></app-pending-transactions>
+      <ng-template #noPending>
+        <h4>No pending transactions.</h4>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<button mat-fab color="primary" class="back-button" (click)="navigateHome()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

@@ -26,3 +26,49 @@ export interface TransactionsResponseI {
   transactions: TransactionI[];
   total: number;
 }
+
+export interface PendingTransactionI {
+  schedDateTime: string;
+  amount: string;
+  currency: string;
+  creditorAccount: string;
+}
+
+export interface PendingTransactionsResponseI {
+  accountId: string;
+  transactions: PendingTransactionI[];
+  total: number;
+}
+
+export interface StockI {
+  name: string;
+  symbol: string;
+  isin: string;
+  closingPrice: number;
+}
+
+export interface HoldingI {
+  stock: StockI;
+  owned: number;
+}
+
+export interface InvestmentTransactionI {
+  id: string;
+  date: string;
+  symbol: string;
+  quantity: number;
+  price: number;
+  type: 'BUY' | 'SELL';
+}
+
+export interface InvestmentAccountI {
+  accountId: string;
+  balance: string;
+  holdings: HoldingI[];
+  transactions: InvestmentTransactionI[];
+}
+
+export interface InvestmentsResponseI {
+  accounts: InvestmentAccountI[];
+  total: number;
+}

@@ -1,0 +1,27 @@
+@import '../../../styles/utils';
+
+.title {
+  font-weight: 600;
+}
+
+.bottom-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-section {
+  flex: 1.5;
+}
+
+.right-section {
+  flex: 1;
+}
+
+.subtitle {
+  color: var(--ob-font-secondary);
+  padding-bottom: 5 * $ob-spacing;
+}
+
+.back-button {
+  margin-top: 3 * $ob-spacing;
+}

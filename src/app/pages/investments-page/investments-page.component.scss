@@ -1,0 +1,32 @@
+@import '../../../styles/utils';
+
+.title {
+  font-weight: 600;
+}
+
+.subtitle {
+  color: var(--ob-font-secondary);
+  padding-bottom: 5 * $ob-spacing;
+}
+
+.text-wrapper {
+  margin-bottom: 5 * $ob-spacing;
+}
+
+.panel-wrapper {
+  display: flex;
+}
+
+.holding-container {
+  display: flex;
+  justify-content: space-between;
+  padding: $ob-spacing 0 0;
+  min-width: 650px;
+}
+
+@media all and (max-width: 1000px) {
+  .holding-container {
+    display: block;
+    min-width: 0;
+  }
+}
