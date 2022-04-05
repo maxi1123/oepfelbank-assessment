@@ -17,7 +17,7 @@
         <app-coins> </app-coins>
       </div>
       <h1 class="mat-display-1 total" [ngClass]="accountsResponse.totalBalance < 0 ? 'alert-negative' : ''">
-        {{ accountsResponse.totalBalance }}
+        {{ convertToGBP(accountsResponse.totalBalance) }}
       </h1>
       <h4 class="currency">{{ accountsResponse.accounts[0].currency }}</h4>
     </div>

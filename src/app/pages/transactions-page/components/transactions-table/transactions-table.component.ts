@@ -7,6 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { TransactionI, TransactionsResponseI } from '@core/services/api/interfaces';
 
+import convertToGBP from '@utils/currency-converter';
+
 @Component({
   selector: 'app-transactions-table',
   templateUrl: './transactions-table.component.html',
@@ -22,6 +24,8 @@ export default class TransactionsTableComponent implements OnInit {
   }
 
   @Output() navEvent = new EventEmitter();
+
+  public convertToGBP = convertToGBP;
 
   public dataSource: MatTableDataSource<TransactionI>;
 

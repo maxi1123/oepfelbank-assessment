@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
+
 import { InvestmentAccountI } from '@core/services/api/interfaces';
+
+import convertToGBP from '@utils/currency-converter';
 
 @Component({
   selector: 'app-panel',
@@ -13,7 +16,9 @@ import { InvestmentAccountI } from '@core/services/api/interfaces';
         <mat-icon class="icon-display">balance</mat-icon>
         Balance:
         <p class="balance">
-          <strong [ngClass]="data.balance < 0 ? 'alert-down' : 'alert-up'">{{ data.balance }}</strong>
+          <strong [ngClass]="data.balance < 0 ? 'alert-down' : 'alert-up'">{{
+            convertToGBP(data.balance)
+          }}</strong>
         </p>
         <p class="mat-caption currency">GBP</p>
       </mat-panel-description>
@@ -24,4 +29,6 @@ import { InvestmentAccountI } from '@core/services/api/interfaces';
 })
 export default class PanelComponent {
   @Input() data: InvestmentAccountI;
+
+  public convertToGBP = convertToGBP;
 }

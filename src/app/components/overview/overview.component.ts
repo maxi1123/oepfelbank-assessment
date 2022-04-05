@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import getCurrentDate from '@utils/date';
+import convertToGBP from '@utils/currency-converter';
 
 @Component({
   selector: 'app-overview',
@@ -8,7 +9,7 @@ import getCurrentDate from '@utils/date';
     <div class="overview-wrapper">
       <mat-icon class="icon-display">{{ icon }}</mat-icon>
       <h1 class="mat-display-1 total" [ngClass]="total < 0 ? 'alert-negative' : ''">
-        {{ total !== 0 ? total : '--.--' }}
+        {{ total !== 0 ? convertToGBP(total) : '--.--' }}
       </h1>
       <h4 class="currency">
         {{ total !== 0 ? currency : '' }}
@@ -24,6 +25,8 @@ export default class OverviewComponent {
   @Input() currency: string | undefined;
 
   @Input() icon: string;
+
+  public convertToGBP = convertToGBP;
 
   public dateToday: string = getCurrentDate();
 }

@@ -4,6 +4,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { AccountI } from '@core/services/api/interfaces';
 
+import convertToGBP from '@utils/currency-converter';
+
 @Component({
   selector: 'app-account-card',
   template: `
@@ -17,7 +19,9 @@ import { AccountI } from '@core/services/api/interfaces';
           {{ accountData.accountSubType }}
         </h4>
         <div style="display: flex; align-items: center">
-          <h2 [ngClass]="accountData.balance < 0 ? 'alert-negative' : ''">{{ accountData.balance }}</h2>
+          <h2 [ngClass]="accountData.balance < 0 ? 'alert-negative' : ''">
+            {{ convertToGBP(accountData.balance) }}
+          </h2>
           <h4 class="currency">{{ accountData.currency }}</h4>
         </div>
       </div>
@@ -31,6 +35,8 @@ export default class AccountCardComponent {
   @Input() isTransactionView: boolean;
 
   @Output() navEvent = new EventEmitter();
+
+  public convertToGBP = convertToGBP;
 
   public triggerNav(): void {
     this.navEvent.emit();
