@@ -12,6 +12,7 @@ import { AccountsResponseI } from '@core/services/api/interfaces';
 import LocalUserI from '@core/services/interfaces';
 
 import getCurrentDate from '@utils/date';
+import convertToGBP from '@utils/currency-converter';
 
 @Component({
   selector: 'app-accounts-page',
@@ -26,6 +27,8 @@ export default class AccountsPageComponent implements OnInit {
   public dateToday: string = getCurrentDate();
 
   public user: LocalUserI = this.getName();
+
+  public convertToGBP = convertToGBP;
 
   constructor(
     private localStorageService: LocalStorageService,

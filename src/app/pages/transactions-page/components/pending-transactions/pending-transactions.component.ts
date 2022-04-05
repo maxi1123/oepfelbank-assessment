@@ -7,6 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { PendingTransactionI, PendingTransactionsResponseI } from '@core/services/api/interfaces';
 
+import convertToGBP from '@utils/currency-converter';
+
 @Component({
   selector: 'app-pending-transactions',
   templateUrl: './pending-transactions.component.html',
@@ -22,6 +24,8 @@ export default class PendingTransactionsComponent implements OnInit {
   }
 
   @Output() navEvent = new EventEmitter();
+
+  public convertToGBP = convertToGBP;
 
   public dataSource: MatTableDataSource<PendingTransactionI>;
 

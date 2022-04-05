@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
+
 import { HoldingI } from '@core/services/api/interfaces';
+
+import convertToGBP from '@utils/currency-converter';
 
 @Component({
   selector: 'app-holding-card',
@@ -12,7 +15,7 @@ import { HoldingI } from '@core/services/api/interfaces';
       <div class="body-header">
         <mat-icon class="icon-display green">assessment</mat-icon>
         <h2>
-          {{ (holding.owned * holding.stock.closingPrice).toFixed(2) }}
+          {{ convertToGBP(holding.owned * holding.stock.closingPrice) }}
           <p style="display: inline-block;" class="mat-caption">GBP</p>
         </h2>
       </div>
@@ -25,7 +28,7 @@ import { HoldingI } from '@core/services/api/interfaces';
       <h4 class="data-point">
         Closing:
         <strong
-          >{{ holding.stock.closingPrice.toFixed(2) }}
+          >{{ convertToGBP(holding.stock.closingPrice) }}
           <p style="display: inline-block;" class="mat-caption">GBP</p></strong
         >
       </h4>
@@ -35,4 +38,6 @@ import { HoldingI } from '@core/services/api/interfaces';
 })
 export default class HoldingCardComponent {
   @Input() holding: HoldingI;
+
+  public convertToGBP = convertToGBP;
 }

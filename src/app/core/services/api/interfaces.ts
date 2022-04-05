@@ -13,7 +13,7 @@ export interface AccountsResponseI {
 }
 
 export interface TransactionI {
-  amount: string;
+  amount: number;
   bookingDate: string;
   currency: string;
   status: string;
@@ -29,7 +29,7 @@ export interface TransactionsResponseI {
 
 export interface PendingTransactionI {
   schedDateTime: string;
-  amount: string;
+  amount: number;
   currency: string;
   creditorAccount: string;
 }
