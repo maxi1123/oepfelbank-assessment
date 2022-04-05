@@ -39,3 +39,11 @@ Run `ng serve` for a dev server. After you spin it up, navigate to `http://local
 Be sure to use a Chrome instance with CORS disabled. Follow [this tutorial](https://alfilatov.com/posts/run-chrome-without-cors/) by Aleksandr Filatov to see how to do so.
 
 Due to security reasons, enable CORS again once you're done developing.
+
+A few more notes, which concern the "extra features":
+
+* As the login page only serves visual purposes and represents a state of "what it could look like", when you log out, you have to fill the whole form again. There's no logic coupled to it, other than showing your name on the home screen.
+
+* After you give access to the NatWest sandbox accounts, the access token gets stored in local storage and has a rather long lifespan. So even after going through the login process again, the accounts will still be connected. To remove the connection and to be able to go through the auth UI flow again, just delete the contents of the browser's local storage and reload the page.
+
+* For any other sandbox test user, than the main user with customer number 123456789012, the math on the investments page doesn't make sense, as the second account is completely statically hardcoded in the backend. However, it works for and is intended for the main user mentioned above.
